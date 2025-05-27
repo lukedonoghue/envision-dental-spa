@@ -1,0 +1,517 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables - Envision Dental Spa Brand Colors */
+:root {
+  --primary-gold: #D4B037;
+  --primary-gold-light: #E5C563;
+  --primary-gold-dark: #A08929;
+  --primary-dark: #32373c;
+  --primary-blue: #1B365D;
+  --accent-amber: #fcb900;
+  --accent-orange: #ff6900;
+  --accent-cream: #FFF8E7;
+  --accent-warm-gray: #F5F3F0;
+  --background: #FFFFFF;
+  --text-dark: #000000;
+  --text-light: #666666;
+  --text-white: #ffffff;
+  --border-light: #E5E5E5;
+  --hover-gold: #b89930;
+  --success-green: #10B981;
+  --error-red: #cf2e2e;
+  --gradient-gold: linear-gradient(135deg, #D4B037 0%, #fcb900 100%);
+  --gradient-dark: linear-gradient(135deg, #32373c 0%, #1B365D 100%);
+  --gradient-warm: linear-gradient(135deg, #FFF8E7 0%, #F5F3F0 100%);
+}
+
+/* Typography */
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+button {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Hide x-cloak elements until Alpine loads */
+[x-cloak] { 
+  display: none !important; 
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom focus styles */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* Form input styling */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  font-size: 16px; /* Prevents zoom on mobile */
+}
+
+/* Mobile menu button styling */
+@media (max-width: 768px) {
+  .modal-content {
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
+
+/* Pulse animation for urgency elements */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Plyr Video Player Styling */
+#video-player {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* Plyr customizations to match brand colors */
+.plyr {
+  border-radius: 0.5rem;
+}
+
+.plyr--video {
+  background: #000;
+}
+
+/* Plyr controls styling */
+.plyr__controls {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+  color: white;
+}
+
+.plyr__control--overlaid {
+  background: var(--gradient-gold);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.plyr__control--overlaid:hover {
+  background: var(--hover-gold);
+  transform: scale(1.05);
+}
+
+/* Plyr progress bar */
+.plyr__progress__range {
+  color: var(--primary-gold);
+}
+
+.plyr__progress__range::-webkit-slider-thumb {
+  background: var(--primary-gold);
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(212, 176, 55, 0.5);
+}
+
+.plyr__progress__range::-moz-range-thumb {
+  background: var(--primary-gold);
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(212, 176, 55, 0.5);
+}
+
+/* Plyr volume slider */
+.plyr__volume {
+  color: var(--primary-gold);
+}
+
+/* Plyr button hover states */
+.plyr__control:hover {
+  background: var(--primary-gold);
+  color: white;
+}
+
+/* Plyr fullscreen button */
+.plyr__control[data-plyr="fullscreen"] svg {
+  fill: currentColor;
+}
+
+/* Custom focus styles for Plyr */
+.plyr__control:focus {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: 2px;
+}
+
+/* Keep large play button visible during muted autoplay */
+.plyr--video .plyr__control--overlaid {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 10;
+}
+
+/* Hide large play button only when user has clicked for audio */
+.plyr--video.user-clicked-audio .plyr__control--overlaid {
+  display: none !important;
+}
+
+/* Aspect ratio utility classes */.aspect-w-3 {
+  position: relative;
+  padding-bottom: calc(4 / 3 * 100%);
+}
+
+.aspect-h-4 > * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Enhanced Typography */
+.gradient-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Buttons */
+.btn-primary {
+  background: var(--gradient-gold);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-secondary {
+  background: white;
+  border: 2px solid var(--primary-gold);
+  color: var(--primary-gold);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-gold);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(212, 176, 55, 0.3);
+}
+
+/* Section Patterns */
+.pattern-dots {
+  background-image: radial-gradient(circle, var(--primary-gold) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  opacity: 0.05;
+}
+
+.bg-pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(212, 176, 55, 0.1) 10px,
+    rgba(212, 176, 55, 0.1) 20px
+  );
+}
+
+/* Card Enhancements */
+.card-hover {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(212, 176, 55, 0.2);
+}
+
+.card-hover:hover::before {
+  opacity: 0.05;
+}
+
+/* Animated Elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Gold Divider */
+.gold-divider {
+  height: 4px;
+  background: var(--gradient-gold);
+  width: 60px;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Number Styling */
+.number-circle {
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 15px rgba(212, 176, 55, 0.4);
+}
+
+/* Trust Badges */
+.trust-badge {
+  background: var(--accent-cream);
+  border: 2px solid var(--primary-gold);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+/* Section Dividers */
+.section-divider {
+  position: relative;
+  height: 80px;
+  margin: -40px 0;
+  z-index: 10;
+}
+
+.wave-divider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Diagonal Section Dividers */
+.diagonal-divider {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.diagonal-divider-top {
+  top: -1px;
+}
+
+.diagonal-divider-bottom {
+  bottom: -1px;
+}
+
+.diagonal-divider svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slant-left {
+  transform: scaleX(-1);
+}
+
+/* Parallax Effect */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Hero CTA Button */
+.hero-cta-button {
+  position: sticky;
+  top: 100vh;
+  background: var(--gradient-gold);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(212, 176, 55, 0.5);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Floating Trust Bar */
+.floating-trust-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient-gold);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(212, 176, 55, 0.5);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Sticky CTA Sidebar */
+.sticky-cta-sidebar {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .sticky-cta-sidebar {
+    display: block;
+  }
+}
+
+.sticky-cta-button {
+  background: var(--gradient-gold);
+  color: white;
+  padding: 1rem 0.5rem;
+  font-weight: bold;
+  box-shadow: 0 10px 20px rgba(212, 176, 55, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  width: auto;
+}
+
+.sticky-cta-button span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.sticky-cta-button .writing-mode-normal {
+  writing-mode: initial;
+  text-orientation: initial;
+}
+
+.sticky-cta-button:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 15px 30px rgba(212, 176, 55, 0.5);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-trust-bar {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}

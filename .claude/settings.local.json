@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:windstatic.com)",
+      "WebFetch(domain:oxbowui.com)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:envisiondentalspa.com)",
+      "Bash(lsof:*)",
+      "Bash(sed:*)",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(npm install:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(node:*)",
+      "Bash(npx html-validate:*)",
+      "Bash(npx vite:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm search:*)",
+      "Bash(browser-use-mcp:*)",
+      "Bash(grep:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(magick:*)",
+      "Bash(python3:*)",
+      "Bash(open:*)",
+      "Bash(git init:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(timeout:*)",
+      "Bash(gtimeout:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm update:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}
