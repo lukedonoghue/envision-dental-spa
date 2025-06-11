@@ -4,12 +4,12 @@
 
 /* Custom CSS Variables - Envision Dental Spa Brand Colors */
 :root {
-  --primary-gold: #D4B037;
-  --primary-gold-light: #E5C563;
-  --primary-gold-dark: #A08929;
+  --primary-gold: #C9A961;
+  --primary-gold-light: #DFBD7F;
+  --primary-gold-dark: #B3924C;
   --primary-dark: #32373c;
   --primary-blue: #1B365D;
-  --accent-amber: #fcb900;
+  --accent-amber: #C9A961;
   --accent-orange: #ff6900;
   --accent-cream: #FFF8E7;
   --accent-warm-gray: #F5F3F0;
@@ -18,10 +18,10 @@
   --text-light: #666666;
   --text-white: #ffffff;
   --border-light: #E5E5E5;
-  --hover-gold: #b89930;
+  --hover-gold: #B3924C;
   --success-green: #10B981;
   --error-red: #cf2e2e;
-  --gradient-gold: linear-gradient(135deg, #D4B037 0%, #fcb900 100%);
+  --gradient-gold: linear-gradient(135deg, #C9A961 0%, #DFBD7F 100%);
   --gradient-dark: linear-gradient(135deg, #32373c 0%, #1B365D 100%);
   --gradient-warm: linear-gradient(135deg, #FFF8E7 0%, #F5F3F0 100%);
 }
