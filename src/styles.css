@@ -140,7 +140,8 @@ select {
 
 .plyr__control--overlaid:hover {
   background: var(--hover-gold);
-  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(201, 169, 97, 0.5);
+  border-color: white;
 }
 
 /* Plyr progress bar */
