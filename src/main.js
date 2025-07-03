@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     keyboard: { focused: true, global: false },
     tooltips: { controls: true, seek: true },
     hideControls: true,
-    clickToPlay: false, // Disable default click to play
+    clickToPlay: true, // Enable click to play/pause
     autopause: true,
     resetOnEnd: false,
     autoplay: false,
@@ -26,17 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   
   // Track user interaction state
-  let hasClickedForAudio = false
+  let hasUserInteracted = false
   
-  // Function to restart video with audio
-  const restartWithAudio = () => {
-    console.log('User clicked - restarting with audio from beginning')
-    hasClickedForAudio = true
-    
-    // Hide the large play button overlay by adding CSS class
-    const container = player.elements.container
-    container.classList.add('user-clicked-audio')
-    container.classList.add('plyr--playing')
+  // Function to handle first interaction
+  const handleFirstInteraction = () => {
+    console.log('First user interaction - restarting with audio')
+    hasUserInteracted = true
     
     // Stop current playback
     player.pause()
@@ -44,13 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reset to beginning
     player.currentTime = 0
     
-    // Enable audio
+    // Enable audio and disable loop
     player.muted = false
-    
-    // Disable looping
     player.loop = false
     
-    // Start playing with audio
+    // Add the CSS class that hides the overlay button
+    const container = player.elements.container
+    container.classList.add('user-clicked-audio')
+    
+    // Start playing
     player.play()
   }
   
@@ -76,45 +73,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = container.querySelector('.plyr__control--overlaid')
     const playButton = container.querySelector('[data-plyr="play"]')
     
-    // Add click listener to video element
-    if (video) {
-      video.addEventListener('click', (e) => {
-        if (!hasClickedForAudio) {
-          e.preventDefault()
-          e.stopPropagation()
-          restartWithAudio()
-        }
-      })
+    // Intercept first click only
+    const interceptFirstClick = (e) => {
+      if (!hasUserInteracted) {
+        e.preventDefault()
+        e.stopPropagation()
+        handleFirstInteraction()
+        return false
+      }
     }
     
-    // Add click listener to overlay play button
+    // Add capture phase listeners to intercept before Plyr
+    container.addEventListener('click', interceptFirstClick, true)
+    
+    // Override overlay button behavior for first click
     if (overlay) {
       overlay.addEventListener('click', (e) => {
-        if (!hasClickedForAudio) {
+        if (!hasUserInteracted) {
           e.preventDefault()
           e.stopPropagation()
-          restartWithAudio()
+          handleFirstInteraction()
         }
-      })
-    }
-    
-    // Add click listener to control bar play button
-    if (playButton) {
-      playButton.addEventListener('click', (e) => {
-        if (!hasClickedForAudio) {
-          e.preventDefault()
-          e.stopPropagation()
-          restartWithAudio()
-        }
-      })
+      }, true)
     }
   })
   
-  // Prevent default play behavior during muted autoplay phase
+  // Maintain the user-clicked-audio class
   player.on('play', (e) => {
-    if (!hasClickedForAudio && !player.muted) {
-      // This shouldn't happen, but if it does, ensure we're muted
-      player.muted = true
+    if (hasUserInteracted && player.elements.container) {
+      // Ensure the class stays on the container
+      player.elements.container.classList.add('user-clicked-audio')
     }
   })
   
