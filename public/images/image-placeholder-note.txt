@@ -1,0 +1,10 @@
+The following image files need to be added for Dr. Kabani's cases:
+
+1. dr-kabani-case1-before.jpg
+2. dr-kabani-case1-after.jpg
+3. dr-kabani-case2-before.jpg
+4. dr-kabani-case2-after.jpg
+5. dr-kabani-case3-before.jpg
+6. dr-kabani-case3-after.jpg
+
+Please add these images to this directory to complete the before/after slider update.

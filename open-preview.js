@@ -11,8 +11,8 @@ import puppeteer from 'puppeteer';
   
   const page = await browser.newPage();
   
-  console.log('Navigating to http://localhost:3000...');
-  await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' });
+  console.log('Navigating to http://localhost:3002...');
+  await page.goto('http://localhost:3002', { waitUntil: 'networkidle2' });
   
   // Wait for page to fully load
   await new Promise(resolve => setTimeout(resolve, 2000));

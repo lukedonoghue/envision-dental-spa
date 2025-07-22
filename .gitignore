@@ -84,3 +84,5 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
+# Local Netlify folder
+.netlify

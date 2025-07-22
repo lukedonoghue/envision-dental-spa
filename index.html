@@ -158,11 +158,13 @@
     <section class="py-20 bg-gray-50 -mt-8" x-data="{ 
         currentSlide: 0, 
         slides: [
-            { name: 'Karen', treatment: 'Porcelain Veneers', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/208-Karen.jpg', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/211-Karen.jpg' },
-            { name: 'Desmond', treatment: 'Complete Smile Makeover', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/200-Desmond.jpg', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/203-Desmond.jpg' },
-            { name: 'Olivia', treatment: '6 Front Veneers', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/216-Olivia.jpg', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/219-Olivia.jpg' },
-            { name: 'Makenzie', treatment: '8 Porcelain Veneers', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/220-Makenzie.jpg', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/223-Makenzie.jpg' },
-            { name: 'Keith', treatment: 'Full Mouth Reconstruction', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/224-Keith.jpg', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/227-Keith.jpg' }
+            /* Dr. Kabani's Cases - Using local image files */
+            { name: 'Irma', treatment: 'Porcelain Veneers by Dr. Kabani', before: '/Dr.Kabbani-Irma.jpg', after: '/Dr.Kabbani-Irma.jpg' },
+            { name: 'Trey', treatment: 'Complete Smile Makeover by Dr. Kabani', before: '/Dr.Kabbani-Trey.jpg', after: '/Dr.Kabbani-Trey.jpg' },
+            { name: 'Kendra', treatment: 'Porcelain Veneers by Dr. Kabani', before: '/Dr.Kabbani-Kendra.jpg', after: '/Dr.Kabbani-Kendra.jpg' },
+            /* Dr. McClung's Cases */
+            { name: 'Karen', treatment: 'Porcelain Veneers by Dr. McClung', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/208-Karen.jpg', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/211-Karen.jpg' },
+            { name: 'Olivia', treatment: '6 Front Veneers by Dr. McClung', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/216-Olivia.jpg', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/219-Olivia.jpg' }
         ]
     }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -628,6 +630,23 @@
                         </p>
                     </div>
                 </div>
+                
+                <!-- Service 6: Dentures -->
+                <div class="card-hover bg-white rounded-lg p-8 group relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="bg-gradient-gold w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2c-4.97 0-9 4.03-9 9 0 3.92 2.51 7.24 6 8.48V22h2v-2.06c.33.06.66.06 1 .06s.67 0 1-.06V22h2v-2.52c3.49-1.24 6-4.56 6-8.48 0-4.97-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/>
+                                <path d="M12 6c-2.76 0-5 2.24-5 5h2c0-1.66 1.34-3 3-3s3 1.34 3 3h2c0-2.76-2.24-5-5-5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-gold transition-colors">Premium Denture Solutions</h3>
+                        <p class="text-gray-700">
+                            Experience comfortable, natural-looking dentures designed to complement your facial features. From implant-supported options to traditional solutions, our dentures restore both function and confidence with precision craftsmanship.
+                        </p>
+                    </div>
+                </div>
             </div>
             
             <div class="text-center mt-12">
@@ -637,6 +656,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- Decorative Divider -->
     <div class="section-divider">
@@ -771,7 +792,25 @@
                     </div>
                 </div>
                 
-                <!-- Gallery Item 2: Desmond - Complete Smile Makeover -->
+                <!-- Gallery Item 2: Kendra - Dr. Kabani Case -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer" @click="lightboxImage = '/Dr.Kabbani-Kendra.jpg'; lightboxAlt = 'Kendra - Porcelain Veneers by Dr. Kabani'; lightboxOpen = true">
+                    <img loading="lazy" src="/Dr.Kabbani-Kendra.jpg" 
+                         alt="Kendra - Porcelain Veneers by Dr. Kabani" 
+                         class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <p class="font-bold">Kendra - Porcelain Veneers</p>
+                            <p class="text-sm">By Dr. Kabani</p>
+                        </div>
+                        <div class="absolute top-4 right-4 text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3: Desmond - Complete Smile Makeover -->
                 <div class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer" @click="lightboxImage = 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/203-Desmond.jpg'; lightboxAlt = 'Desmond - Complete Smile Makeover'; lightboxOpen = true">
                     <img loading="lazy" src="https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/203-Desmond.jpg" 
                          alt="Desmond - Complete Smile Makeover" 
@@ -789,15 +828,15 @@
                     </div>
                 </div>
                 
-                <!-- Gallery Item 3: Olivia - 6 Front Veneers -->
-                <div class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer" @click="lightboxImage = 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/219-Olivia.jpg'; lightboxAlt = 'Olivia - 6 Front Veneers'; lightboxOpen = true">
-                    <img loading="lazy" src="https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/219-Olivia.jpg" 
-                         alt="Olivia - 6 Front Veneers" 
+                <!-- Gallery Item 4: Irma - Dr. Kabani Case -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer" @click="lightboxImage = '/Dr.Kabbani-Irma.jpg'; lightboxAlt = 'Irma - Porcelain Veneers by Dr. Kabani'; lightboxOpen = true">
+                    <img loading="lazy" src="/Dr.Kabbani-Irma.jpg" 
+                         alt="Irma - Porcelain Veneers by Dr. Kabani" 
                          class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div class="absolute bottom-4 left-4 text-white">
-                            <p class="font-bold">Olivia - 6 Front Veneers</p>
-                            <p class="text-sm">Natural perfection</p>
+                            <p class="font-bold">Irma - Porcelain Veneers</p>
+                            <p class="text-sm">By Dr. Kabani</p>
                         </div>
                         <div class="absolute top-4 right-4 text-white">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -807,7 +846,7 @@
                     </div>
                 </div>
                 
-                <!-- Gallery Item 4: Makenzie - 8 Porcelain Veneers -->
+                <!-- Gallery Item 5: Makenzie - 8 Porcelain Veneers -->
                 <div class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer" @click="lightboxImage = 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/223-Makenzie.jpg'; lightboxAlt = 'Makenzie - 8 Porcelain Veneers'; lightboxOpen = true">
                     <img loading="lazy" src="https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/223-Makenzie.jpg" 
                          alt="Makenzie - 8 Porcelain Veneers" 
@@ -825,33 +864,15 @@
                     </div>
                 </div>
                 
-                <!-- Gallery Item 5: Keith - Full Mouth Reconstruction -->
-                <div class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer" @click="lightboxImage = 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/227-Keith.jpg'; lightboxAlt = 'Keith - Full Mouth Reconstruction'; lightboxOpen = true">
-                    <img loading="lazy" src="https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/227-Keith.jpg" 
-                         alt="Keith - Full Mouth Reconstruction" 
+                <!-- Gallery Item 6: Trey - Dr. Kabani Case -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer" @click="lightboxImage = '/Dr.Kabbani-Trey.jpg'; lightboxAlt = 'Trey - Complete Smile Makeover by Dr. Kabani'; lightboxOpen = true">
+                    <img loading="lazy" src="/Dr.Kabbani-Trey.jpg" 
+                         alt="Trey - Complete Smile Makeover by Dr. Kabani" 
                          class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div class="absolute bottom-4 left-4 text-white">
-                            <p class="font-bold">Keith - Full Reconstruction</p>
-                            <p class="text-sm">Renewed youth</p>
-                        </div>
-                        <div class="absolute top-4 right-4 text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 6: Madeline - 4 Porcelain Veneers (from case studies) -->
-                <div class="relative group overflow-hidden rounded-lg shadow-md cursor-pointer" @click="lightboxImage = 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2024/03/case-study-1.webp'; lightboxAlt = 'Madeline - 4 Porcelain Veneers'; lightboxOpen = true">
-                    <img loading="lazy" src="https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2024/03/case-study-1.webp" 
-                         alt="Madeline - 4 Porcelain Veneers" 
-                         class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div class="absolute bottom-4 left-4 text-white">
-                            <p class="font-bold">Madeline - 4 Veneers</p>
-                            <p class="text-sm">Stunning personality match</p>
+                            <p class="font-bold">Trey - Complete Makeover</p>
+                            <p class="text-sm">By Dr. Kabani</p>
                         </div>
                         <div class="absolute top-4 right-4 text-white">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
