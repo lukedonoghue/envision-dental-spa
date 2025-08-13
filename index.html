@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M4PSWL9N');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DFW Cosmetic Dentist | Veneers & Smile Makeover | Trial Smile Experience</title>
@@ -17,6 +24,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body x-data="{ showModal: false, exitIntentShown: false, lightboxOpen: false, lightboxImage: '', lightboxAlt: '' }" @mouseleave.window="if (!exitIntentShown && $event.clientY <= 0) { showModal = true; exitIntentShown = true; }">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4PSWL9N"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     
     <!-- Header with Logo -->
     <header class="bg-black shadow-lg sticky top-0 z-40">
@@ -1290,7 +1301,7 @@
     </section>
 
     <!-- Guarantee Section -->
-    <section class="py-20 bg-green-50">
+    <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
                 Your Trial Smile Experience is Completely Risk-Free
@@ -1426,7 +1437,7 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-primary-gold to-accent-amber text-white">
+    <section class="py-4 bg-gradient-to-r from-primary-gold to-accent-amber text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8">
                 Ready to Choose DFW's Most Trusted Cosmetic Dentists?
@@ -1458,7 +1469,7 @@
                 or call <a href="tel:8172613392" class="underline font-bold">(817) 261-3392</a> - Ask About Cosmetic Dentistry & Trial Smiles
             </p>
             
-            <div class="mt-8 bg-red-600 bg-opacity-20 rounded-lg p-4 inline-block">
+            <div class="mt-8 bg-red-800 bg-opacity-70 rounded-lg p-4 inline-block">
                 <p class="font-bold text-lg animate-pulse">
                     Only 8 cosmetic dentistry trial smile appointments available this month
                 </p>
@@ -1591,7 +1602,7 @@
                             timing: '',
                             experience: '',
                             budget: ''
-                        } }" action="#" method="POST" class="space-y-4">
+                        } }" action="/thank-you" method="POST" class="space-y-4">
                             <!-- First Name -->
                             <div>
                                 <label for="firstName" class="block text-sm font-medium text-gray-700">
@@ -1705,6 +1716,19 @@
                             <button type="submit" class="w-full bg-primary-gold text-white font-bold py-3 px-4 rounded-lg hover:bg-hover-gold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-gold transition-colors">
                                 Book My Trial Smile
                             </button>
+                            
+                            <!-- Form submission script -->
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const form = document.querySelector('form');
+                                    form.addEventListener('submit', function(e) {
+                                        e.preventDefault();
+                                        // Here you would typically send the form data to your server
+                                        // For now, we'll just redirect to the thank you page
+                                        window.location.href = '/thank-you';
+                                    });
+                                });
+                            </script>
                         </form>
                     </div>
                 </div>
