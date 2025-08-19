@@ -1,4 +1,4 @@
-// Script to download placeholder images for Dr. Kabani's cases
+// Script to download placeholder images for Dr. Kabbani's cases
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
@@ -7,33 +7,33 @@ const imageUrls = [
   // Case 1 - Woman with green sweater
   {
     url: 'https://images.unsplash.com/photo-1554151228-14d9def656e4',
-    filename: 'dr-kabani-case1-before.jpg'
+    filename: 'dr-kabbani-case1-before.jpg'
   },
   {
     url: 'https://images.unsplash.com/photo-1554151228-14d9def656e4',
-    filename: 'dr-kabani-case1-after.jpg'
+    filename: 'dr-kabbani-case1-after.jpg'
   },
   // Case 2 - Man with gray sweater
   {
     url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d',
-    filename: 'dr-kabani-case2-before.jpg'
+    filename: 'dr-kabbani-case2-before.jpg'
   },
   {
     url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d',
-    filename: 'dr-kabani-case2-after.jpg'
+    filename: 'dr-kabbani-case2-after.jpg'
   },
   // Case 3 - Woman with white blouse
   {
     url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-    filename: 'dr-kabani-case3-before.jpg'
+    filename: 'dr-kabbani-case3-before.jpg'
   },
   {
     url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-    filename: 'dr-kabani-case3-after.jpg'
+    filename: 'dr-kabbani-case3-after.jpg'
   }
 ];
 
-const targetDir = path.join(__dirname, 'public', 'images', 'dr-kabani');
+const targetDir = path.join(__dirname, 'public', 'images', 'dr-kabbani');
 
 // Ensure the directory exists
 if (!fs.existsSync(targetDir)) {
