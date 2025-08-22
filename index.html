@@ -197,7 +197,7 @@
                         
                         <!-- Before Image with Clip Mask -->
                         <div class="absolute inset-0 overflow-hidden" 
-                             :style="`clip-path: inset(0 0 0 ${sliderPosition}%)`">
+                             :style="`clip-path: inset(0 ${100 - sliderPosition}% 0 0)`">
                             <img :src="slides[currentSlide].before" 
                                  alt="Before treatment" 
                                  class="absolute inset-0 w-full h-full object-cover">
@@ -1598,7 +1598,7 @@
                             timing: '',
                             experience: '',
                             budget: ''
-                        } }" action="/thank-you" method="POST" class="space-y-4">
+                        } }" action="/thank-you" method="POST" data-netlify="true" name="trial-smile-form" class="space-y-4">
                             <!-- First Name -->
                             <div>
                                 <label for="firstName" class="block text-sm font-medium text-gray-700">
