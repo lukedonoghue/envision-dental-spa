@@ -167,16 +167,16 @@
 
     <!-- Real Patients Who Started with a Trial Smile Section -->
     <section class="py-20 bg-gray-50 -mt-8" x-data="{ 
-        currentSlide: 0, 
+        currentSlide: 0,
         slides: [
-            /* Dr. Kabbani's Cases - Using local image files */
-            { name: 'Monica', treatment: 'Porcelain Restorations by Dr. Kabbani', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2024/12/180-Monica.jpg?fit=1920%2C1080&ssl=1', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2024/12/182-Monica.jpg?fit=1920%2C1080&ssl=1' },
-            { name: 'Irma', treatment: 'Porcelain Veneers by Dr. Kabbani', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2024/11/23-Irma.jpg?fit=1920%2C1080&ssl=1', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2024/11/24-Irma.jpg?fit=1920%2C1080&ssl=1' },
-            { name: 'Trey', treatment: 'Complete Smile Makeover by Dr. Kabbani', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2024/11/100-Trey.jpg?fit=1920%2C1080&ssl=1', after: '/Dr.Kabbani-Trey.jpg' },
-            { name: 'Kendra', treatment: 'Porcelain Veneers by Dr. Kabbani', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2024/12/177-Kendra.jpg?fit=1920%2C1080&ssl=1', after: '/Dr.Kabbani-Kendra.jpg' },
-            /* Dr. McClurg's Cases */
-            { name: 'Karen', treatment: 'Porcelain Veneers by Dr. McClurg', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/210-Karen.jpg?fit=1920%2C1080&ssl=1', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/03/211-Karen.jpg' },
-            { name: 'Olivia', treatment: '6 Front Veneers by Dr. McClurg', before: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/216-Olivia.jpg', after: 'https://i0.wp.com/envisiondentalspa.com/wp-content/uploads/2025/04/219-Olivia.jpg' }
+            /* New Before/After Composite Images */
+            { name: 'Ryan', treatment: 'Smile Transformation', image: '/ryanlander.jpg' },
+            { name: 'London', treatment: 'Smile Transformation', image: '/londonlander.jpg' },
+            { name: 'Lauren', treatment: 'Smile Transformation', image: '/laurenlander.jpg' },
+            { name: 'Diane', treatment: 'Smile Transformation', image: '/dianelander.jpg' },
+            { name: 'Desmond', treatment: 'Smile Transformation', image: '/desmondlander.jpg' },
+            { name: 'Ben', treatment: 'Smile Transformation', image: '/benlander.jpg' },
+            { name: 'Kendra', treatment: 'Porcelain Veneers', image: '/178-Kendra.webp' }
         ]
     }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -184,74 +184,40 @@
                 Real Transformations, <span class="gradient-text">Real Smiles</span>
             </h2>
             <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-                Drag the slider to reveal stunning smile transformations from our patients
+                Browse through stunning smile transformations from our patients
             </p>
-            
+
             <div class="relative max-w-4xl mx-auto">
                 <div class="overflow-hidden rounded-lg shadow-xl">
-                    <div class="relative aspect-[16/9]" x-data="{ sliderPosition: 50 }">
-                        <!-- After Image (Background) -->
-                        <img :src="slides[currentSlide].after" 
-                             alt="After treatment" 
-                             class="absolute inset-0 w-full h-full object-cover">
-                        
-                        <!-- Before Image with Clip Mask -->
-                        <div class="absolute inset-0 overflow-hidden" 
-                             :style="`clip-path: inset(0 ${100 - sliderPosition}% 0 0)`">
-                            <img :src="slides[currentSlide].before" 
-                                 alt="Before treatment" 
-                                 class="absolute inset-0 w-full h-full object-cover">
-                        </div>
-                        
-                        <!-- Slider Handle -->
-                        <div class="absolute inset-0">
-                            <input type="range" 
-                                   x-model="sliderPosition" 
-                                   min="0" 
-                                   max="100" 
-                                   class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20">
-                            <div class="absolute top-0 bottom-0 w-1 bg-white shadow-lg pointer-events-none" 
-                                 :style="`left: ${sliderPosition}%`">
-                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg">
-                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Labels -->
-                        <div class="absolute top-4 left-4 bg-primary-gold/90 text-white px-3 py-1 rounded-full text-sm font-medium">
-                            Before
-                        </div>
-                        <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium">
-                            After
-                        </div>
-                        
+                    <div class="relative aspect-[16/9]">
+                        <!-- Single Composite Image Display -->
+                        <img :src="slides[currentSlide].image || slides[currentSlide].after"
+                             :alt="slides[currentSlide].name + ' transformation'"
+                             class="w-full h-full object-contain bg-black transition-opacity duration-300">
+
                         <!-- Patient Info -->
                         <div class="absolute bottom-4 left-4 right-4 bg-black/70 text-white p-4 rounded-lg backdrop-blur-sm">
                             <h3 class="font-bold text-lg" x-text="slides[currentSlide].name"></h3>
                             <p class="text-sm opacity-90" x-text="slides[currentSlide].treatment"></p>
-
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <!-- Navigation -->
                 <div class="flex justify-center mt-6 space-x-2">
                     <template x-for="(slide, index) in slides" :key="index">
-                        <button @click="currentSlide = index" :class="currentSlide === index ? 'bg-primary-gold' : 'bg-gray-300'" class="w-3 h-3 rounded-full transition-colors"></button>
+                        <button @click="currentSlide = index; showBefore = true" :class="currentSlide === index ? 'bg-primary-gold' : 'bg-gray-300'" class="w-3 h-3 rounded-full transition-colors"></button>
                     </template>
                 </div>
-                
+
                 <!-- Arrow Navigation - Positioned outside the slider area -->
-                <button @click="currentSlide = currentSlide === 0 ? slides.length - 1 : currentSlide - 1" class="absolute -left-12 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all hover:scale-110 z-30">
+                <button @click="currentSlide = currentSlide === 0 ? slides.length - 1 : currentSlide - 1; showBefore = true" class="absolute -left-12 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all hover:scale-110 z-30">
                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
-                <button @click="currentSlide = currentSlide === slides.length - 1 ? 0 : currentSlide + 1" class="absolute -right-12 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all hover:scale-110 z-30">
+                <button @click="currentSlide = currentSlide === slides.length - 1 ? 0 : currentSlide + 1; showBefore = true" class="absolute -right-12 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all hover:scale-110 z-30">
                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
